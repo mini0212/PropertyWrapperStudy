@@ -26,10 +26,10 @@ extension AppData {
         save(value: encode)
     }
     
-    func decodeData<T: Decodable>(default value: T) -> T? {
+    func decodeData<T: Decodable>(default value: T?) -> T? {
         guard let data = data(),
             let decode = try? JSONDecoder().decode(T.self, from: data) else {
-                return nil
+                return value
         }
         return decode
     }

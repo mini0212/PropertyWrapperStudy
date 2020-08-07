@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showButtonClick(_ sender: UIButton) {
-        guard let savedUserInfo = AppData.userInfo.decodeData(default: UserInfo(name: nil, phone: nil)) else { return }
+        guard let savedUserInfo: UserInfo = AppData.userInfo.decodeData(default: nil) else { return }
         nameLabel.text = savedUserInfo.name
         phoneLabel.text = savedUserInfo.phone
     }
