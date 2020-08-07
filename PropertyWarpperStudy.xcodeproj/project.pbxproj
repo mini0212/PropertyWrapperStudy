@@ -15,6 +15,7 @@
 		3959672D24DD1A8A00952ACF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3959672B24DD1A8A00952ACF /* LaunchScreen.storyboard */; };
 		3959673824DD1A8A00952ACF /* PropertyWarpperStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959673724DD1A8A00952ACF /* PropertyWarpperStudyTests.swift */; };
 		3959674324DD1A8A00952ACF /* PropertyWarpperStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959674224DD1A8A00952ACF /* PropertyWarpperStudyUITests.swift */; };
+		3959675224DD25C200952ACF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959675124DD25C200952ACF /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3959673E24DD1A8A00952ACF /* PropertyWarpperStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PropertyWarpperStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3959674224DD1A8A00952ACF /* PropertyWarpperStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWarpperStudyUITests.swift; sourceTree = "<group>"; };
 		3959674424DD1A8A00952ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3959675124DD25C200952ACF /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,10 @@
 		3959671F24DD1A8800952ACF /* PropertyWarpperStudy */ = {
 			isa = PBXGroup;
 			children = (
-				3959672024DD1A8800952ACF /* AppDelegate.swift */,
-				3959672224DD1A8800952ACF /* SceneDelegate.swift */,
 				3959672424DD1A8800952ACF /* ViewController.swift */,
 				3959672624DD1A8800952ACF /* Main.storyboard */,
-				3959672924DD1A8A00952ACF /* Assets.xcassets */,
-				3959672B24DD1A8A00952ACF /* LaunchScreen.storyboard */,
+				3959675124DD25C200952ACF /* UserModel.swift */,
+				3959675024DD215D00952ACF /* Supporting Files */,
 				3959672E24DD1A8A00952ACF /* Info.plist */,
 			);
 			path = PropertyWarpperStudy;
@@ -126,6 +126,17 @@
 				3959674424DD1A8A00952ACF /* Info.plist */,
 			);
 			path = PropertyWarpperStudyUITests;
+			sourceTree = "<group>";
+		};
+		3959675024DD215D00952ACF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3959672024DD1A8800952ACF /* AppDelegate.swift */,
+				3959672224DD1A8800952ACF /* SceneDelegate.swift */,
+				3959672924DD1A8A00952ACF /* Assets.xcassets */,
+				3959672B24DD1A8A00952ACF /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 			files = (
 				3959672524DD1A8800952ACF /* ViewController.swift in Sources */,
 				3959672124DD1A8800952ACF /* AppDelegate.swift in Sources */,
+				3959675224DD25C200952ACF /* UserModel.swift in Sources */,
 				3959672324DD1A8800952ACF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
