@@ -1,0 +1,14 @@
+//
+//  UserModel.swift
+//  PropertyWarpperStudy
+//
+//  Created by 김성민 on 2020/08/07.
+//  Copyright © 2020 min. All rights reserved.
+//
+
+import Foundation
+
+struct UserInfo: Codable {
+    let name: String?
+    let phone: String?
+}
