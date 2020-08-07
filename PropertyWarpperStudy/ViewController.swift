@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet private(set) var nameLabel: UILabel!
     @IBOutlet private(set) var phoneLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,12 +26,14 @@ class ViewController: UIViewController {
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         let userInfo = UserInfo(name: nameTextField.text,
                                 phone: phoneTextField.text)
-        print(userInfo)
+        AppData.userInfo.encodeSave(item: userInfo)
         
     }
     
     @IBAction func showButtonClick(_ sender: UIButton) {
-    
+        guard let savedUserInfo = AppData.userInfo.decodeData(default: UserInfo(name: nil, phone: nil)) else { return }
+        nameLabel.text = savedUserInfo.name
+        phoneLabel.text = savedUserInfo.phone
     }
     
 }
