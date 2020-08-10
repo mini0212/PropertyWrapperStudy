@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet private(set) var nameLabel: UILabel!
     @IBOutlet private(set) var phoneLabel: UILabel!
     
+    @UserDefaultEncoded(key: AppData.userInfo.rawValue, defaultValue: [])
+    private var storedUserInfo: [UserInfo]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +28,20 @@ class ViewController: UIViewController {
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         let userInfo = UserInfo(name: nameTextField.text,
                                 phone: phoneTextField.text)
-        AppData.userInfo.encodeSave(item: userInfo)
-        
+        storedUserInfo.insert(userInfo, at: 0)
     }
     
     @IBAction func showButtonClick(_ sender: UIButton) {
-        guard let savedUserInfo: UserInfo = AppData.userInfo.decodeData(default: nil) else { return }
-        nameLabel.text = savedUserInfo.name
-        phoneLabel.text = savedUserInfo.phone
+        guard let data = UserDefaults.standard.data(forKey: AppData.userInfo.rawValue),
+            let value = try? JSONDecoder().decode([UserInfo].self, from: data) else { return }
+        
+        storedUserInfo = value.map { UserInfo(name: $0.name, phone: $0.phone) }
+        
+        nameLabel.text = storedUserInfo.first?.name
+        phoneLabel.text = storedUserInfo.first?.phone
+        
+        dump(storedUserInfo)
+        
     }
     
 }
