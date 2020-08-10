@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct AppData {
-    @UserDefaultEncoded(key: "user_info", defaultValue: [])
-    static var userInfo: [UserInfo]
-}
+//struct AppData {
+//    @UserDefaultsWrapper(key: "user_info", defaultValue: [])
+//    static var userInfo: [UserInfo]
+//}
 
 @propertyWrapper
-struct UserDefaultEncoded<T: Codable> {
+struct UserDefaultsWrapper<T: Codable> {
     let key: String
     let defaultValue: T
     
@@ -39,3 +39,5 @@ struct UserDefaultEncoded<T: Codable> {
         }
     }
 }
+
+

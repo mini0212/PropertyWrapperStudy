@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet private(set) var nameLabel: UILabel!
     @IBOutlet private(set) var phoneLabel: UILabel!
     
+    @UserDefaultsWrapper(key: "user_info", defaultValue: [])
+    var userInfoList: [UserInfo]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,14 +27,16 @@ class ViewController: UIViewController {
 
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         let userInfo = UserInfo(name: nameTextField.text,
-                                phone: phoneTextField.text)
-        AppData.userInfo.insert(userInfo, at: 0)
+                                phone: phoneTextField.text,
+                                date: Date())
+        userInfoList.removeAll(where: { $0 == userInfo })
+        userInfoList.insert(userInfo, at: 0)
     }
     
     @IBAction func showButtonClick(_ sender: UIButton) {
-        dump(AppData.userInfo)
-        nameLabel.text = AppData.userInfo.first?.name
-        phoneLabel.text = AppData.userInfo.first?.phone
+        print(userInfoList)
+        nameLabel.text = userInfoList.first?.name
+        phoneLabel.text = userInfoList.first?.phone
     }
 }
 
