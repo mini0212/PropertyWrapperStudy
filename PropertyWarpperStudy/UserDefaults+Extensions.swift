@@ -8,31 +8,9 @@
 
 import Foundation
 
-enum AppData: String {
-    case userInfo
-}
-
-extension AppData {
-    func save(value: Any) {
-        UserDefaults.standard.set(value, forKey: rawValue)
-    }
-    
-    func data() -> Data? {
-        return UserDefaults.standard.object(forKey: rawValue) as? Data
-    }
-    
-    func encodeSave<T: Encodable>(item: T) {
-        guard let encode = try? JSONEncoder().encode(item) else { return }
-        save(value: encode)
-    }
-    
-    func decodeData<T: Decodable>(default value: T?) -> T? {
-        guard let data = data(),
-            let decode = try? JSONDecoder().decode(T.self, from: data) else {
-                return value
-        }
-        return decode
-    }
+struct AppData {
+    @UserDefaultEncoded(key: "user_info", defaultValue: [])
+    static var userInfo: [UserInfo]
 }
 
 @propertyWrapper
@@ -51,7 +29,6 @@ struct UserDefaultEncoded<T: Codable> {
                 let value = try? JSONDecoder().decode(T.self, from: jsonData) else {
                     return defaultValue
             }
-            print(value)
             return value
         }
         set {
